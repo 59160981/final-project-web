@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ปริ้นใบกำกับภาษี</title>
+</head>
+
+<body>
+    <h3>ปริ้นใบกำกับภาษี</h3>
+    รหัสออเดอร์ : <input type="text" placeholder="" style="width:50%" value="<%= order.ID_order %>" readonly><br>
+    ชื่อ-สกุล(ลูกค้า) : <input type="text" placeholder="" style="width:50%"
+        value="<%= custo.firstname %> <%= custo.lastname %>" readonly><br>
+    ชื่อ-สกุล(พนักงาน) : <input type="text" placeholder="" style="width:50%"
+        value="<%= emp.firstname %> <%= emp.lastname %>" readonly><br>
+    รหัสประจำตัวผู้เสียถาษี : <input type="text" placeholder="" style="width:50%" value="<%= tax %>" readonly><br>
+    วันที่ออกใบเสร็จชำระเงิน : <input type="text" placeholder="" style="width:50%" value="" readonly><br>
+    <table>
+        <thead>
+            <tr>
+                <th>อันดับ</th>
+                <th>รายการ</th>
+                <th>จำนวน</th>
+                <th>ราคา</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0; i < order.details.length; i++) { %>
+            <tr>
+                <td style="text-align: center">
+                    <%= i+1 %>
+                </td>
+                <td style="text-align: center">
+                    <%= order.details[i].name %>
+                </td>
+                <td style="text-align: center">
+                    <%= order.details[i].amount %>
+                </td>
+                <td style="text-align: center">
+                    <%= order.details[i].price %>
+                </td>
+                <% } %>
+            </tr>
+            <tr>
+                <td style="text-align: center" colspan="3">ราคาทั้งหมด</td>
+                <td style="text-align: center">
+                    <%= order.totalprice %>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center" colspan="3">ภาษีมูลค่าเพิ่ม 7 %</td>
+                <td style="text-align: center">
+                    <%= order.totalprice*0.07 %>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center" colspan="3">ราคารวมสุทธิ</td>
+                <td style="text-align: center">
+                    <%= order.totalprice+order.totalprice*0.07 %>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <button type="button">พิมพ์</button>
+
+</body>
+
+</html>

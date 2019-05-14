@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ปริ้นใบรับรถ</title>
+</head>
+
+<body>
+    รหัสใบรับรถ : <input type="text" placeholder="" style="width:50%" value="<%= data.ID_car_receipt %>" readonly><br>
+    รหัสบัตรประจำตัวประชาชน : <input type="text" placeholder="" style="width:50%" value="<%= data.ID_customer %>" readonly><br>
+    รหัสพนักงาน : <input type="text" placeholder="" style="width:50%" value="<%= data.ID_employee %>" readonly><br>
+    ทะเบียนรถ : <input type="text" placeholder="" style="width:50%" value="<%= data.register %>" readonly><br>
+    วันทำเอกสาร : <input type="text" placeholder="" style="width:50%" value="<%= data.datein %>" readonly><br>
+    วันรับรถ : <input type="text" placeholder="" style="width:50%" value="<%= data.dateout %>" readonly><br>
+    <button type="button">พิมพ์</button>
+</body>
+
+</html>

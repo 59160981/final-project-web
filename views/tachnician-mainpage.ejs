@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tachnician</title>
+</head>
+<body>
+    ยินดีต้อนรับ <%= login %>
+        <table>
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">รหัสใบรับรถ</th>
+                        <th style="text-align: center;">ทะเบียนรถ</th>
+                        <th style="text-align: center;">รุ่น</th>
+                        <th style="text-align: center;">สี</th>
+                        <th style="text-align: center;">วันทำเอกสาร</th>
+                        <th style="text-align: center;">วันรับรถ</th>
+                        <th style="text-align: center;">หมายเหตุ</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th style="text-align: center;">รหัสใบรับรถ</th>
+                        <th style="text-align: center;">ทะเบียนรถ</th>
+                        <th style="text-align: center;">รุ่น</th>
+                        <th style="text-align: center;">สี</th>
+                        <th style="text-align: center;">วันทำเอกสาร</th>
+                        <th style="text-align: center;">วันรับรถ</th>
+                        <th style="text-align: center;">หมายเหตุ</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <% for(var i=0; i < carreceipt.length; i++) { %>
+                        <tr>
+                            <td style="text-align: center;">
+                                <%= carreceipt[i].ID_car_receipt %>
+                            </td>
+                            <td style="text-align: center;">
+                                <%= carreceipt[i].register %>
+                            </td>
+                            <td style="text-align: center;">
+                                <%= carreceipt[i].generation %>
+                            </td>  
+                            <td style="text-align: center;">
+                                <%= carreceipt[i].color %>
+                            </td>
+                            <td style="text-align: center;">
+                                <%= carreceipt[i].datein %>
+                            </td>
+                            <td style="text-align: center;">
+                                <%= carreceipt[i].dateout %>
+                            </td>   
+                            <td style="text-align: center;"><a href="./repair/<%= carreceipt[i]._id %>" class="btn btn-primary">เลือก</a>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+</body>
+</html>

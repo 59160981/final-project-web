@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>รายการซ่อม</title>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="5">รหัสใบรับรถ : <%= carreceipt.ID_car_receipt %>
+ทะเบียนรถ : <%= carreceipt.register %>
+รุ่น : <%= carreceipt.generation %>
+สี : <%= carreceipt.color %>
+วันรับรถ : <%= carreceipt.dateout %>
+    </textarea>
+    <table>
+        <thead>
+            <tr>
+                <th>รายการซ่อม</th>
+                <th>จำนวน</th>
+                <th>ราคา</th>
+                <th>หมายเหตุ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0; i < order.details.length; i++) { %>
+                <tr>
+            <td style="text-align: center">
+                <%= order.details[i].name %>
+            </td>
+            <td style="text-align: center">
+                <%= order.details[i].amount %>
+            </td>
+            <td style="text-align: center">
+                <%= order.details[i].price %>
+            </td>
+            <td style="text-align: center">
+                <a href="/technician/repair/delete/<%= carreceipt._id %>/<%= order.details[i].name %>">ลบ</a>
+            </td>
+            
+            <% } %>
+        </tr>
+            <td style="text-align: center">
+                    <%= order.totalprice %>
+            </td>
+        </tbody>
+    </table>
+    
+    <form method="POST" action="/technician/repair/<%= carreceipt._id %>">
+        รายการซ่อม : <select name="name">
+            <option value="" hidden>โปรดเลือก....</option>
+            <% for(var i=0; i < repairt.length; i++) { %>
+            <option><%= repairt[i].name %></option>
+            <% } %>
+        </select><br>
+        จำนวน : <input type="number" name="amount"><br>
+        <button type="submit">เพิ่ม</button>
+    </form>
+    <button onclick="location.href='/technician/repair/<%= carreceipt._id %>/save'">ยืนยันการซ่อม</button>
+</body>
+
+</html>

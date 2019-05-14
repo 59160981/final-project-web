@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ใบรับรถ</title>
+</head>
+
+<body>
+    <form method="POST" action="./<%= custo._id %>">
+        ทะเบียนรถ : <input name="register"  type="text"  style="width:50%"> <br>
+        รุ่น : <input name="generation"  type="text"  style="width:50%"> <br>
+        สี : <input name="color"  type="text"  style="width:50%"> <br>
+        วันทำเอกสาร : <input name="datein"  type="date"  style="width:50%"> <br>
+        วันรับรถ : <input name="dateout"  type="date"  style="width:50%"> <br>
+        <button type="submit">บันทึก</button>
+    </form>
+</body>
+
+</html>

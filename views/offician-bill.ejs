@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ใบเสร็จ</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align: center;">รหัสออร์เดอร์</th>
+                <th style="text-align: center;">รหัสประจำตัวประชาชน</th>
+                <th style="text-align: center;">ประเภท</th>
+                <th style="text-align: center;">สถานะ</th>
+                <th style="text-align: center;">หมายเหตุ</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th style="text-align: center;">รหัสออร์เดอร์</th>
+                <th style="text-align: center;">รหัสประจำตัวประชาชน</th>
+                <th style="text-align: center;">ประเภท</th>
+                <th style="text-align: center;">สถานะ</th>
+                <th style="text-align: center;">หมายเหตุ</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <% for(var i=0; i < order.length; i++) { %>
+            <tr>
+                <td style="text-align: center;">
+                    <%= order[i].ID_order %>
+                </td>
+                <td style="text-align: center;">
+                    <%= order[i].ID_customer %>
+                </td>
+                <td style="text-align: center;">
+                    <%= order[i].order_type %>
+                </td>
+                <td style="text-align: center;">
+                    <%= order[i].status %>
+                </td>
+                <td style="text-align: center;"><a href="/offician/bill/<%= order[i]._id %>">เลือก</a>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+
+</html>
